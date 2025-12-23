@@ -211,5 +211,104 @@ This repository is dedicated to Arab Atheists and focuses on collecting and orga
 
 <div id="bot-message">
   مرحباً 👋  
-  هل لديك سؤال أو فكرة؟
+  هل لديك سؤال أو فكرة
 </div>
+
+<div id="aql">
+  <div class="eye left"></div>
+  <div class="eye right"></div>
+</div>
+
+<div id="aql-box"></div>
+
+#aql {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at top, #60a5fa, #2563eb);
+  border-radius: 50%;
+  cursor: pointer;
+  animation: float 4s ease-in-out infinite;
+  z-index: 9999;
+  box-shadow: 0 0 25px rgba(96,165,250,0.4);
+}
+
+.eye {
+  position: absolute;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  background: #020617;
+  border-radius: 50%;
+}
+
+.eye.left { left: 22px; }
+.eye.right { right: 22px; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+#aql-box {
+  position: fixed;
+  bottom: 120px;
+  left: 20px;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 14px 16px;
+  border-radius: 12px;
+  max-width: 240px;
+  font-size: 14px;
+  line-height: 1.6;
+  display: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+<script>
+const aql = document.getElementById("aql");
+const box = document.getElementById("aql-box");
+const eyes = document.querySelectorAll(".eye");
+
+const messages = [
+  "هل تساءلت يومًا لماذا نؤمن بما نؤمن به؟",
+  "الشك ليس ضعفًا، بل أداة فهم.",
+  "التفكير الحر يبدأ بسؤال صادق.",
+  "لا شيء مقدس أمام العقل.",
+  "اسأل قبل أن تصدّق."
+];
+
+function showMessage(text) {
+  box.innerText = text;
+  box.style.display = "block";
+  setTimeout(() => box.style.display = "none", 6000);
+}
+
+// ترحيب أول مرة فقط
+if (!localStorage.getItem("aqlVisited")) {
+  setTimeout(() => {
+    showMessage("مرحبًا، أنا عقل. مهمتي أن أطرح الأسئلة لا الإجابات.");
+    localStorage.setItem("aqlVisited", "true");
+  }, 2000);
+}
+
+// عند الضغط
+aql.addEventListener("click", () => {
+  const random = messages[Math.floor(Math.random() * messages.length)];
+  showMessage(random);
+});
+
+// تتبع العين للمؤشر
+document.addEventListener("mousemove", e => {
+  eyes.forEach(eye => {
+    const rect = eye.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const angle = Math.atan2(y, x);
+    eye.style.transform = `translate(${Math.cos(angle)*3}px, ${Math.sin(angle)*3}px)`;
+  });
+});
+</script>
