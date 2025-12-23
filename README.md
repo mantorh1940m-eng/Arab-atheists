@@ -1,4 +1,4 @@
-# Arab-atheists
+ه# Arab-atheists
 This repository is dedicated to Arab Atheists and focuses on collecting and organizing rational, critical content related to the critique of religion and religious thought. It provides articles, research, translations, and resources that promote free thinking, scientific reasoning, and open philosophical discussion without dogma or blind belief
 
 <!DOCTYPE html><html lang="ar" dir="rtl">
@@ -203,3 +203,13 @@ This repository is dedicated to Arab Atheists and focuses on collecting and orga
 
 </body>
 </html>
+
+<div id="anime-bot">
+  <div class="eye left"></div>
+  <div class="eye right"></div>
+</div>
+
+<div id="bot-message">
+  مرحباً 👋  
+  هل لديك سؤال أو فكرة؟
+</div>
