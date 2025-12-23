@@ -312,3 +312,9 @@ document.addEventListener("mousemove", e => {
   });
 });
 </script>
+
+<footer style="background:#020617; color:#94a3b8; text-align:center; padding:20px; font-size:14px; line-height:1.6;">
+  <p>ملحدي العرب © 2025</p>
+  <p>منصة عربية للنقاش العقلاني والفكري الحر</p>
+  <p>للتواصل: <a href="mailto:revengee2919@gmail.com" style="color:#38bdf8; text-decoration:none;">revengee2919@gmail.com</a></p>
+</footer>
